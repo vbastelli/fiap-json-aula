@@ -1,14 +1,16 @@
 const lista = document.getElementById('lista')
 
-fetch('https://jsonplaceholder.typicode.com/posts').then((resp) => resp.json()).then((data) => {
+fetch('./html_dinamica/data.json')
+.then((resp) => resp.json())
+.then((data) => {
 
-data.forEach((post) => {
-    let titulo = post.title;
-    let corpo = post.body;
+data.forEach((produto) => {
     const li = document.createElement('li')
-
-    li.innerHTML = "<h4>" + titulo + "<h4>" + "<p>" + corpo + "<p>";
+    li.innerHTML = 
+    "<h4>" + produto.nome + "</h4>" +
+     "<p>" + produto.preco + "</p>" + 
+     "<p>" + produto.id + "</p>" +
+     "<hr>"
     lista.append(li)
-});
-
+})
 })
